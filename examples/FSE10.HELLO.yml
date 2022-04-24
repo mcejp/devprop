@@ -1,0 +1,27 @@
+device_name: FSE10.HELLO
+properties:
+  - name: Test.Uint16.RO
+    type: readonly uint16
+    unit: ""
+    offset: 0
+    scale: 1
+    range: [0, 65535]
+  - name: Test.Uint16.RW
+    type: uint16
+  - name: Test.Uint16.WO
+    type: writeonly uint16
+  - name: Test.Uint32.RW
+    type: uint32
+    range: [0, 2000000000]
+  - name: Test.Uint8.RW
+    type: uint8
+  - name: Test.Uint8.Const
+    type: readonly uint8
+    unit: "degC"
+    offset: 20
+    scale: 0.1
+    range: [20, 45.5]
+    implementation:
+      type: const
+      #value: 30.1
+      raw_value: 77
