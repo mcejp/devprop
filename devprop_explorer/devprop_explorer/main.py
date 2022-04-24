@@ -208,7 +208,7 @@ class MainWindow(QMainWindow):
         self.ui.statusbar.showMessage(f"Set to value: {str(result)}", timeout=5000)
 
 
-if __name__ == '__main__':
+def main():
     logging.basicConfig()
     logging.getLogger("devprop").setLevel(logging.DEBUG)
 
@@ -218,3 +218,7 @@ if __name__ == '__main__':
     window.show()
 
     sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
