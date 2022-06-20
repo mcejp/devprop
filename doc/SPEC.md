@@ -1,3 +1,8 @@
+---
+title: Devprop specification
+geometry: a4paper,margin=2cm
+---
+
 # Devprop specification DRAFT
 
 ![image](devprop.png)
@@ -92,7 +97,7 @@ _Min_ and _max_ must be consistent with the used data type, offset and scale:
 
 where _[type_min; type_max]_ is the inclusive range of the used data type.
 
-_Min_ must be less than _max_.
+_Min_ must be strictly less than _max_.
 
 The _attributes_ column specifies whether the property can be read, written, or both
 (the fourth possibility -- a property that can be neither read, nor written -- is _not_ permitted).
@@ -248,6 +253,7 @@ If the value is not acceptable (e.g., out-of-bounds), a VALUE_ERROR should be re
 Property names should be hierarchical, using a dot (`.`) as separator, and CamelCase for
 individual elements. For acronyms, only the first character should be capitalized, to improve
 readability. Examples:
+
 - `Meas.Aux.AmbientTemp`
 - `Ocp.Threshold.Stw`
 
@@ -255,6 +261,7 @@ readability. Examples:
 
 Device names should be hierarchical, using a dot (`.`) as separator, and using appropriate
 case in spelling of individual elements. Examples:
+
 - `FSE10.AMS`
 - `CHG`
 - `Logger`
@@ -300,7 +307,7 @@ When referring to a property of a specific device, the names of the two should b
 
 ### No expectation of stable property IDs
 
-- unless incompatible changes in devices are strictly forbidden (undesirable limitation),
+- unless backwards-incompatible changes in devices were to be strictly forbidden (an undesirable limitation),
   client _always_ needs up-to-date manifest to interpret/encode values correctly
 - since a hash is included in the first segment of the manifest, client can cache the
   manifest body
