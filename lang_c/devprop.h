@@ -4,6 +4,10 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef void (*dp_GenericCallback)();
 
 typedef enum dp_DataType {
@@ -50,5 +54,9 @@ void dp_node_init(dp_Node* inst_out,
 void dp_handle_message_ext(dp_Node* inst, uint32_t id, uint8_t const* data, size_t data_length);
 
 void dp_user_send_message_ext(dp_Node* inst, uint32_t id, uint8_t const* data, size_t data_length);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -3,6 +3,10 @@
 
 #include "devprop.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum { DP_NODE_ID_FSE10_HELLO = 1 };
 
 enum { INDEX_TEST_UINT16_RO = 1 };
@@ -13,5 +17,9 @@ enum { INDEX_TEST_UINT8_RW = 5 };
 enum { INDEX_TEST_UINT8_CONST = 6 };
 
 void dp_node_init_FSE10_HELLO(dp_Node* inst_out);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

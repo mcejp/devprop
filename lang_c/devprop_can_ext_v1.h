@@ -3,6 +3,10 @@
 
 #include "devprop.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // private types & functions -- should be generally only used for test purposes, as they relate to a specific protocol implementation
 // ID_FIXED_MASK can be useful for configuring message filters, though
 
@@ -23,5 +27,9 @@ enum {
 };
 
 uint32_t dpp_make_id(int dir, int node_id, dpp_Opcode opcode, int property_index);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
