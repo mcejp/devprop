@@ -20,6 +20,11 @@ def get_adapter(bus_dsn: Optional[str] = None) -> BusAdapter:
         # Look for appropriate plug-in
         transport_name, parameters = bus_dsn.split(":", 1)
 
+        if transport_name == "serial":
+            from .serial_wrapped_can_adapter import SerialWrappedCanAdapter
+
+            return SerialWrappedCanAdapter(parameters)
+
         if sys.version_info < (3, 10):
             from importlib_metadata import entry_points
         else:

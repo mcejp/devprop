@@ -185,7 +185,8 @@ class MainWindow(QMainWindow):
         self.property_table_model.beginResetModel() # TODO
         for (node, property), raw_value in zip(query, results):
             key = node.get_property_path(property)
-            value = decode_value(property, raw_value)
+            # TODO: raw_value can be None on error -- perhaps we should signal it?
+            value = decode_value(property, raw_value) if raw_value is not None else None
             self.property_table_model.set_property_value(key, value)
         self.property_table_model.endResetModel() # TODO
 
