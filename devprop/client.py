@@ -103,7 +103,7 @@ class Client:
 
         execute_state_machine(self.bus, pq, time.monotonic() + timeout_sec)
 
-        logger.debug("%s --> %s", property.name, pq.get_value())
+        logger.debug("%s --> %s", property.name, pq.get_value().hex())
         return decode_value(property, pq.get_value())
 
     def query_properties(self, properties: List[Tuple[Node, Property]], timeout_sec: float) -> List[Optional[bytes]]:
@@ -118,7 +118,7 @@ class Client:
             try:
                 execute_state_machine(self.bus, pq, time.monotonic() + timeout_sec)
 
-                logger.debug("%s --> %s", prop.name, pq.get_value())
+                logger.debug("%s --> %s", prop.name, pq.get_value().hex())
                 resp.append(pq.get_value())
             except ProtocolError as ex:
                 logger.error("Protocol error device %s: %s", dev.name, str(ex))
