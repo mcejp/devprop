@@ -312,6 +312,11 @@ When referring to a property of a specific device, the names of the two should b
 - since a hash is included in the first segment of the manifest, client can cache the
   manifest body
 
+### No floating-point type
+
+Initially omitted for simplicity, to be added at a later point.
+There is no perticular reason to avoid it, as the device can simply opt to not use any such fields.
+
 ### Plain-text (CSV) manifest
 
 - human readability eases debugging
@@ -351,6 +356,7 @@ Only changes to normative sections are logged here.
 
 | Date       | Version | Summary of changes                                              |
 |------------|---------|-----------------------------------------------------------------|
+| 2022-08-05 | DRAFT   | Address lack of floating-point property type                    |
 | 2022-03-12 | DRAFT   | Clarify constraints on naming and property offset/scale/min/max |
 | 2022-03-11 | DRAFT   | Add a provision for reserver property attributes                |
 | 2022-03-11 | DRAFT   | Add a provision for reserved property names                     |
