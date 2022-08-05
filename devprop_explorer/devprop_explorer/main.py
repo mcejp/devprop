@@ -2,6 +2,7 @@
 
 import html
 import logging
+import os
 import sys
 import traceback
 from typing import List, Dict, Tuple
@@ -10,8 +11,8 @@ from PySide2.QtCore import Qt, QThread, Signal, QObject, SignalInstance
 from PySide2.QtWidgets import *
 from PySide2.QtGui import QFont
 
+from devprop.can_bus.transport_plugin import get_adapter
 from devprop.client import Client
-from devprop.can_bus.python_can_adapter import PythonCanAdapter
 from devprop.model import Property
 from devprop.property import decode_value
 from devprop.protocol_can_ext_v1.model import NodeId
@@ -120,7 +121,7 @@ class MainWindow(QMainWindow):
 
         # Init back-end
         # self.backend = MockBackend()
-        self.client = Client(PythonCanAdapter())
+        self.client = Client(get_adapter(os.getenv("DEVPROP_BUS")))     # TODO: GUI picker?
 
         logger.info("Ready.")
 
