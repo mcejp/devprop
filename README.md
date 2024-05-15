@@ -1,3 +1,9 @@
+![screenshot](doc/gui_prototype.png)
+
+[Integration guide](INTEGRATION_GUIDE.md)
+
+[Specification](doc/SPEC.md)
+
 HOWTO:
 
 ```
